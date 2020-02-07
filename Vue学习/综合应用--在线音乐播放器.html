@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>在线音乐播放器</title>
+		<link type="text/css" rel="stylesheet" href="css/在线音乐播放器.css" />
+		<link type="text/css" rel="stylesheet" href="css/iconfont/iconfont.css" />
+	</head>
+	<body>
+		
+		<div id="app">
+			<!-- 顶部  搜索 -->
+			<div class="top">
+				<div class="ss">
+					<input type="text" v-model="sousuo"
+					 class="ss_text" @keyup.enter="getMusic"
+					placeholder="请输入歌手或歌名"/>
+					<i class="iconfont icon">&#xe503;</i>
+				</div>
+			</div>
+			<!-- 中部  主体部分 -->
+			<div class="con">
+				<!-- 左侧 歌曲列表 -->
+				<div class="musicList">
+					<ul class="mList">
+						<li v-for="item in songs" id="list"
+						@click="getMusicURL(item.id,item.name,item.artists[0].name,$event)">
+							<h4>{{ item.name }}</h4>
+							<p> --- {{ item.artists[0].name }}</p>
+						</li>
+					</ul>
+					<div class="ko"></div> 
+				</div>
+				<!-- 中间 歌曲播放显示 -->
+				<div class="musicImg">
+					<!-- CD磁盘旋转 -->
+					<div class="CD">
+						<div class="CDpan " :class="{rot:rot}">
+							<div class="pan">
+								<img src="img/碟片.png" />
+							</div>
+							<div class="image">
+								<img  class="CDimg" :src="imgUrl" alt="" />
+							</div>
+						</div>
+						<div class="zhen" :class="{zhenkai:zhenkai}">
+							<img src="img/磁针.png" />
+						</div>
+					</div>
+					<!-- 歌词 -->
+					<div class="lyrics">
+						<div class="lyric_area">
+							<ul id="lyric">
+								<li class="lrcs" v-for="itme in oLRC">
+									{{ itme[1] }}
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- 右侧 歌曲评论 -->
+				<div class="musicDis">
+					<h2>热门留言</h2>
+					<ul>
+						<li v-for="item in userDis">
+							<div class="comments">
+								<div class="userimg">
+									<img alt="" :src="item.user.avatarUrl" />
+								</div>
+								<div class="usercomments">
+									<h4>{{ item.user.nickname }}</h4>
+									<p class="com">{{ item.content }}</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+			<!-- 底部 播放器 -->
+			<div class="bot">
+				<div class="audName">
+					<div class="audImg">
+						<img alt="" :src="imgUrl" :title="mName"/>
+					</div>
+					<div class="name">
+						<h5 :title="mName"> {{ mName }} </h5>
+						<p :title="artName"> {{ artName }} </p>
+					</div>
+				</div>
+				<audio :src="MusicSrc" id="aud"
+				autoplay="autoplay" controls="controls"
+				></audio>
+			</div>
+		</div>
+		
+		
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<!-- 官网提供的 axios 在线地址 -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/在线音乐播放器.js"></script>
+		
+		
+	</body>
+</html>

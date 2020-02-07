@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-bind指令</title>
+		<style type="text/css">
+			.active{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<h1>设置元素的属性（比如：src，title，class）</h1>
+		
+		<div id="app">
+			<input type="button" value="改变isActive值" @click="toggleActive" />
+			<br />
+			<img v-bind:src="imgSrc" alt="" />
+			<br />
+			<img :src="imgSrc" alt="" :title="imgTitle" />
+			<br />
+			<img :src="imgSrc" alt="" :title="imgTitle + '!!!' " />
+			<br />
+			<img :src="imgSrc" alt="" :title="imgTitle" :class="isActive ? 'active':'' " />
+			<br />
+			<img :src="imgSrc" alt="" :title="imgTitle" :class="{active:isActive}" />
+		</div>
+		
+		
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+		
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data:{
+					imgSrc:"http://www.itheima.com/images/logo.png",
+					imgTitle:"黑马程序员",
+					isActive:false
+				},
+				methods:{
+					toggleActive:function(){
+						this.isActive = !this.isActive;
+					}
+				}
+				
+			})
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

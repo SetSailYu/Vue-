@@ -1,0 +1,286 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: #747979;
+}
+
+#app{
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 1200px;
+	height: 710px;
+}
+/* 顶部   搜索 */
+.top{
+	height: 50px;
+	background-color: #1E90FF;
+}
+
+.ss {
+	float: right;
+	width: 250px;
+	height: 30px;
+	margin-top: 11px;
+	margin-right: 20px;
+	background-color: #7DCBED;
+	border-radius: 16px;
+}
+
+.ss_text{
+	float: left;
+	margin-left: 12px;
+	margin-top: 5px;
+	height: 20px;
+	width: 211px;
+	border: none;
+	outline: none;
+	background-color: initial;
+}
+
+.icon {
+	float: right;
+	margin-top: 7px;
+	margin-right: 8px;
+}
+
+
+/* 中部   主体部分 */
+.con{
+	height: 600px;
+	background-color: #CEC6B8;
+}
+
+/* 左侧   歌曲列表 */
+.musicList{
+	float: left;
+	position: relative;
+	width: 248px;
+	height: 600px;
+	/* border-right: 1px solid gray; */
+}
+
+.mList{
+	list-style: none;
+	height: 600px;
+	width: 247px;
+	overflow: auto;
+	margin-right: -15px;
+}
+.mList li{
+	width: 200px;
+	height: auto;
+	border-radius: 0;
+	border: 1px solid rgba(0, 0, 0, 0.175);
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	margin-top: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.song {
+	box-shadow:  0 0 10px 5px rgba(0, 0, 0, 0.175);
+	border-radius: 16px;
+	margin-left: 13px;
+}
+.mList li:hover{
+	box-shadow: inset 0 0 1px 1px red;
+}
+
+.mList li p{
+	font-size: 13px;
+}
+
+.ko{
+	position: absolute;
+	top: 0px;
+	right: 1px;
+	width: 17px;
+	height: 600px;
+	background-color: #CEC6B8;
+}
+
+/* 中间   歌曲播放显示 */
+.musicImg{
+	float: left;
+	width: 650px;
+	height: 600px;
+	border-right: 1px solid gray;
+	overflow: hidden;
+}
+
+.CD{
+	position: relative;
+	width: 650px;
+	height: 300px;
+}
+
+.pan{
+	width: 300px;
+	height: 300px;
+	z-index: 10;
+	/* background-color: gray; */
+}
+.image{
+	position: absolute;
+	width: 159px;
+	height: 159px;
+	left: 71px;
+	top: 71px;
+	z-index: 1;
+}
+.CDimg{
+	border-radius: 80px;
+}
+.zhen{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	left: 220px;
+	top: -99px;
+	transition: all 1.5s; 
+	z-index: 20;
+}
+.zhenkai{
+	transform: rotate(-30deg); 
+}
+.CDpan{
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	left: 170px;
+	top: 30px;
+	/* background-color: gray; */
+}
+.rot{
+	animation: rotateimg 10s linear infinite;
+}
+@keyframes rotateimg{
+	0%{transform: rotate(0deg);}
+	50%{transform: rotate(180deg);}
+	100%{transform: rotate(360deg);}
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+
+.lyrics{
+	width: 650px;
+	height: 300px;
+	/* background-color: aqua; */
+	text-align: center;
+}
+
+.lyric_area{/*歌词显示区域*/
+	height: 300px; /*歌词区域高度*/
+	overflow: hidden; /*隐藏超出部分*/
+	margin-top: 15px;
+}
+#lyric{/*歌词列表*/
+	line-height: 20px;/*行高，这个值要用在歌词滚动距离上*/
+	transition-duration: 500ms;/*滚动速度*/
+	transform: translateY(0);
+ }
+.lineHigh{/*高亮行*/
+	color: red;
+}
+
+/* 右侧   歌曲评论 */
+.musicDis{
+	float: left;
+	width: 300px;
+	height: 600px;
+	overflow: hidden;
+}
+h2{
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+.musicDis ul {
+	list-style: none;
+	height: 559px;
+	width: 318px;
+	overflow: auto;
+}
+.musicDis li{
+	margin-top: 10px;
+}
+.comments{
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 290px;
+}
+.userimg{
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+.userimg img{
+	border-radius: 25px;
+}
+.usercomments{
+	float: left;
+	margin-left: 10px;
+	width: 220px;
+	font-size: 15px;
+}
+.com{
+	margin-top: 5px;
+}
+
+
+/* 底部    播放器 */
+.bot{
+	height: 60px;
+	background-color: white;
+}
+.audName{
+	float: left;
+	width: 213px;
+	height: 60px;
+}
+.audImg{
+	float: left;
+}
+.audImg img {
+	margin-top: 8px;
+	margin-left: 5px;
+	width: 45px;
+	height: 45px;
+	border-radius: 22px;
+}
+.name{
+	float: left;
+	padding-left: 8px;
+	padding-top: 5px;
+	width: 155px;
+	height: 60px;
+}
+.name p {
+	font-size: 12px;
+}
+
+#aud{
+	float: left;
+	margin-top: -3px;
+	width: 987px;
+	height: 60px;
+	border: none;
+	outline: none;
+}
+
+h5{
+	max-height: 34px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/* white-space: nowrap; */
+}
+

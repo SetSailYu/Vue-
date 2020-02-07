@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-for指令</title>
+	</head>
+	<body>
+		
+		<h1>根据数据生成列表结构</h1>
+		
+		<div id="app">
+			<input type="button" value="添加数据" @click="add" />
+			<input type="button" value="移除数据" @click="remove" />
+			<input type="button" value="移除数据arr" @click="removeArr" />
+			<ul>
+				<li v-for="itme in arr">
+					黑马程序员校区：{{ itme }}
+				</li>
+				<li v-for="(it,index) in arr">
+					{{ index + 1 }} 黑马程序员校区：{{ it }}
+				</li>
+			</ul>
+			<h2 v-for="itme in vegetables" :title="vegetables.name">
+				{{ itme.name }}
+			</h2> 
+		</div>
+		
+		
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data:{
+					 arr:["北京","上海","广州","深圳"],
+					 vegetables:[
+						 {name:"西兰花炒蛋"},
+						 {name:"蛋炒西兰花"}
+					 ]
+				},
+				methods:{
+					add:function(){
+						this.vegetables.push({name:"花菜炒蛋"});
+					},
+					remove:function(){
+						this.vegetables.shift();//从索引0开始移除
+					},
+					removeArr:function(){
+						this.arr.shift();
+					}
+				}
+			})
+		</script>
+		
+		
+	</body>
+</html>

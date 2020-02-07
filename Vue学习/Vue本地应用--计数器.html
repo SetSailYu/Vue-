@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计数器</title>
+		<style type="text/css">
+			#counter{
+				margin: 0 auto;
+				margin-top: 50px;
+				width: 300px;
+				height: 50px;
+				border: 1px solid grey;
+			}
+			button{
+				width: calc(100% / 3);
+				height: 100%;
+				color: red;
+				font-size: 30px;
+			}
+			#add{
+				float: right;
+			}
+			span{
+				width: calc(100% / 3);
+				height: 100%;
+				text-align: center;
+				padding-left: 33px;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="counter">
+			<button id="sub" @click="sub">-</button>
+			<span> {{ num }} </span>
+			<button id="add" @click="add">+</button>
+		</div>
+		
+		
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+		<script>
+			var app = new Vue({
+				el:"#counter",
+				data:{
+					num:0
+				},
+				methods:{
+					sub:function(){
+						if (this.num != 0){
+							this.num--
+						}
+					},
+					add:function(){
+						if (this.num != 10){
+							this.num++
+						}
+					}
+				}
+			})
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>天知道</title>
+		<link type="text/css" rel="stylesheet" href="css/天知道.css" />
+	</head>
+	<body>
+		
+		
+		<div id="app">
+			<p class="pp">
+				<input type="text" v-model="city" @keyup.enter="getWeather" 
+				placeholder="请输入要查询的城市名称" class="text" />
+				<input type="button" @click="getWeather" value="查 询" class="but" />
+			</p>
+			<p class="pc">
+				<a @click="changeCity('北京')">北京</a>&nbsp;&nbsp;
+				<a @click="changeCity('上海')">上海</a>&nbsp;&nbsp;
+				<a @click="changeCity('广州')">广州</a>&nbsp;&nbsp;
+				<a @click="changeCity('深圳')">深圳</a>
+			</p>
+			<div class="con">
+				<ul>
+					<li v-for="item in weatherList">
+						<h2>{{ item.type }}</h2>
+						<br />
+						<p>{{ item.low }} ~ {{ item.high }}</p>
+						<br />
+						<p>{{ item.date }}</p>
+					</li>
+				</ul>
+			</div>
+			<p>  {{ ganmao }} </p>
+		</div>
+		
+		
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<!-- 官网提供的 axios 在线地址 -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="js/天知道.js"></script>
+		
+	</body>
+</html>

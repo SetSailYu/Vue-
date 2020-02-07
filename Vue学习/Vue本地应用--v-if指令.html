@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-if指令</title>
+	</head>
+	<body>
+		
+		
+		
+		<h1>根据表达值的真假，切换元素的显示和隐藏（操作dom元素）</h1>
+		
+		<div id="app">
+			<input type="button" value="切换显示" @click="toggleIsShow" />
+			<p v-if="isShow">黑马程序员</p>
+			<p v-show="isShow">黑马程序员  -  v-show修饰</p>
+			<h2 v-if="temperature>=35">热死啦</h2>
+		</div>
+		
+		
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+		
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data:{
+					isShow:false,
+					temperature:35
+				},
+				methods:{
+					toggleIsShow:function(){
+						this.isShow = !this.isShow;
+					}
+				}
+				
+			})
+		</script>
+		
+		<!--
+			v-if    值为false时是没有该dom树的
+		 -->
+		
+		
+		
+	</body>
+</html>

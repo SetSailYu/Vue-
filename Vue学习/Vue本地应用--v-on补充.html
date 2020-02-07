@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-on补充</title>
+	</head>
+	<body>
+		
+		<h1>传递自定义参数，事件修饰符</h1>
+		
+		<div id="app">
+			<input type="button" value="点击" @click="doIt(666,'老铁')"  />
+			<input type="text"  @keyup.enter="sayHi"  />
+		</div>
+		
+		
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+		
+		<script>
+			var app = new Vue({
+				el: "#app",
+				methods: {  //方法
+					doIt:function(d1,d2){
+						alert("做IT");
+						console.log(d1);
+						console.log(d2);
+					},
+					sayHi:function(){
+						alert("吃了没");
+					}
+				}
+			})
+		</script>
+		
+		
+		
+	</body>
+</html>
